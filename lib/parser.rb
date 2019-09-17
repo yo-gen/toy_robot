@@ -54,8 +54,7 @@ class Parser
       next_y = cur_y
     end
     return unless @table.is_valid_position?(next_x, next_y)
-    @robot.x_point = next_x
-    @robot.y_point = next_y
+    @robot.place_at(next_x, next_y, cur_direction)
   end
 
   def turn_left
