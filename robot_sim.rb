@@ -1,12 +1,16 @@
+require_relative 'lib/parser'
+require_relative 'lib/square_table'
+
+table = SquareTable.new(5)
+parser = Parser.new(table)
+
 puts "This is a Toy Robot Simulator"
-puts "Enter exit to end and restart to play again"
+puts "Enter exit to end"
 
 command = ""
 
-while(command != "exit" && command != restart)
-  command = gets()
-
-  parser = Parser.new()
+while(command != "exit")
+  command = gets().chomp
 
   parser.parse(command)
 end
