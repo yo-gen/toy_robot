@@ -10,10 +10,11 @@ class Parser
     split_command = command.split(" ")
     action = split_command[0]
 
-    # return if !@table.robot_placed && action != "PLACE"
+    return if !@table.robot_placed && action != "PLACE"
     case action
     when "PLACE"
       params = split_command[1].split(",")
+      return if params.length != 3
       place_robot(*params)
     when "MOVE"
       move_robot()
