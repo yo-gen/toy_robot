@@ -1,9 +1,9 @@
 class SquareTable
-  attr_reader :robot_placed
+  attr_accessor :robots_list
 
   def initialize(size)
     @size = size
-    @robot_placed = false
+    @robots_list = {}
   end
 
   def is_valid_position?(x,y)
@@ -14,7 +14,11 @@ class SquareTable
     end
   end
 
-  def place_robot
-    @robot_placed = true
+  def place_robot(robot)
+    @robots_list[robot.name] = robot
+  end
+
+  def robot_placed(robot_name)
+    @robots_list[robot_name]
   end
 end
